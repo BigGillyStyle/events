@@ -5,7 +5,11 @@ module.exports = function(environment) {
     modulePrefix: 'events',
     podModulePrefix: 'events/pods',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+      'script-src': "'self' https://maxcdn.bootstrapcdn.com",
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'style-src': "'self' https://maxcdn.bootstrapcdn.com"
+    },
     firebase: 'https://blistering-fire-1344.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
