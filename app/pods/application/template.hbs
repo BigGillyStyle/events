@@ -1,4 +1,3 @@
-<!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -8,22 +7,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">iCompetePlanet: Find Your Race</a>
+      {{#link-to 'index' class="navbar-brand"}}iCompetePlanet: Find Your Race{{/link-to}}
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </div><!--/.nav-collapse -->
+    </div>
   </div>
 </nav>
 
 <div class="container">
-  <div class="row text-center">
-    <a href="#" class="btn btn-default">Search</a>
-    <a href="#" class="btn btn-default">Add</a>
-  </div>
-
   {{outlet}}
 </div>
