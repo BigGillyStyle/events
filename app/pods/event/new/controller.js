@@ -1,11 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  event: {},
-
   actions: {
     submit() {
-      var newEvent = this.store.createRecord('event', event);
+      console.log('Submitting model...', this.get('model'));
+      var newEvent = this.store.createRecord('event', this.get('model'));
       newEvent.save();
     }
   }
