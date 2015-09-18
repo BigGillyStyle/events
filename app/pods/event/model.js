@@ -7,5 +7,6 @@ export default DS.Model.extend({
   city: DS.attr('string'),
   state: DS.attr('string'),
   postalCode: DS.attr('string'),
-  country: DS.attr('string', {defaultValue: 'US'})
+  country: DS.attr('string', {defaultValue: 'US'}),
+  date: DS.attr('date')
 });
