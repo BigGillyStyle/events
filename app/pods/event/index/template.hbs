@@ -1,4 +1,4 @@
-You are looking at events.
+<h2 class="text-center">Upcoming Events</h2>
 
 <div class="table-responsive">
   <table class="table table-condensed table-hover table-bordered table-striped">
@@ -6,8 +6,7 @@ You are looking at events.
       <tr>
         <th>Name</th>
         <th>Date</th>
-        <th>City</th>
-        <th>State</th>
+        <th>Location</th>
       </tr>
     </thead>
     <tbody>
@@ -15,8 +14,7 @@ You are looking at events.
         <tr>
           <td>{{event.name}}</td>
           <td>{{moment-format event.date 'MM/DD/YYYY'}}</td>
-          <td>{{event.city}}</td>
-          <td>{{event.state}}</td>
+          <td>{{event.city}}, {{event.state}}</td>
         </tr>
       {{/each}}
     </tbody>
