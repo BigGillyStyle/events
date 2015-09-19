@@ -1,1 +1,24 @@
 You are looking at events.
+
+<div class="table-responsive">
+  <table class="table table-condensed table-hover table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>City</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |event|}}
+        <tr>
+          <td>{{event.name}}</td>
+          <td>{{moment-format event.date 'MM/DD/YYYY'}}</td>
+          <td>{{event.city}}</td>
+          <td>{{event.state}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
