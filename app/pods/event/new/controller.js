@@ -5,10 +5,10 @@ export default Ember.Controller.extend({
     submit() {
       const flashMessages = Ember.get(this, 'flashMessages');
 
-      var newEvent = this.store.createRecord('event', this.get('model'));
+      let newEvent = this.store.createRecord('event', this.get('model'));
       newEvent.save().then(() => {
         this.transitionToRoute('event');
-        flashMessages.success("Added event: " + this.get('model.name'));
+        flashMessages.success(`Added event: ${this.get('model.name')}`);
       });
     },
     cancel() {

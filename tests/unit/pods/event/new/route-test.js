@@ -6,6 +6,6 @@ moduleFor('route:event/new', 'Unit | Route | event/new', {
 });
 
 test('it exists', function(assert) {
-  var route = this.subject();
+  let route = this.subject();
   assert.ok(route);
 });
