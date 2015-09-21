@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import DS from 'ember-data';
-import momentFormat from 'ember-moment/computeds/format';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
