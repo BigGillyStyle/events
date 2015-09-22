@@ -8,7 +8,7 @@ moduleForComponent('event-form', 'Integration | Component | event form', {
   integration: true
 });
 
-test('it renders', function (assert) {
+test('it renders', function(assert) {
   assert.expect(1);
 
   // Set any properties with this.set('myProperty', 'value');

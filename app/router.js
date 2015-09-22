@@ -11,10 +11,10 @@ Router.map(function() {
   }, function() {
     this.route('new');
     this.route('show', {
-      path: '/:event_id'
+      path: '/:id'
     });
     this.route('edit', {
-      path: '/:event_id/edit'
+      path: '/:id/edit'
     });
   });
 });
