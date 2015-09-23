@@ -5,7 +5,7 @@ from 'ember-qunit';
 
 moduleForModel('event', 'Unit | Model | event', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:race']
 });
 
 test('it exists', function(assert) {
@@ -39,9 +39,9 @@ test('it has an attribute: country', function(assert) {
   assert.ok(hasAttr);
 });
 
-test('it has an attribute: time', function(assert) {
+test('it has an attribute: startAtTime', function(assert) {
   let model = this.subject();
-  let hasAttr = Object.keys(model.toJSON()).indexOf('time') > -1;
+  let hasAttr = Object.keys(model.toJSON()).indexOf('startAtTime') > -1;
   assert.ok(hasAttr);
 });
 

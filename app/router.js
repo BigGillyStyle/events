@@ -11,10 +11,17 @@ Router.map(function() {
   }, function() {
     this.route('new');
     this.route('show', {
-      path: '/:id'
+      path: '/:eventId'
     });
     this.route('edit', {
-      path: '/:id/edit'
+      path: '/:eventId/edit'
+    });
+    this.route('race', {
+      path: 'races'
+    }, function() {
+      this.route('show', {
+        path: '/:raceId'
+      });
     });
   });
 });

@@ -15,7 +15,7 @@
           <td>
             {{#link-to "event.show" event}}{{event.name}}{{/link-to}}
           </td>
-          <td>{{moment-format event.date 'MM/DD/YYYY'}}</td>
+          <td>{{moment-format event.startAtDate 'MM/DD/YYYY'}}</td>
           <td>{{event.city}}, {{event.state}}</td>
         </tr>
       {{/each}}
