@@ -7,12 +7,12 @@ export default Ember.Controller.extend({
 
       let event = this.get('model');
       event.save().then(() => {
-        this.transitionToRoute('event');
+        this.transitionToRoute('events');
         flashMessages.success(`Successfully saved changes to: ${this.get('model.name')}`);
       });
     },
     cancel() {
-      this.transitionToRoute('event');
+      this.transitionToRoute('events');
     }
   }
 });

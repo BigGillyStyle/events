@@ -1,0 +1,8 @@
+{{#event-show event=model}}
+  <div class="row">
+    {{#link-to 'events.index' class="btn btn-default col-sm-2 col-sm-offset-2" }}Show All Events{{/link-to}}
+    {{#link-to 'events.edit' model class="btn btn-primary col-sm-2 col-sm-offset-4" }}Edit{{/link-to}}
+  </div>
+{{/event-show}}
+
+{{outlet}}

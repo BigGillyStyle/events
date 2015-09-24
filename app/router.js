@@ -6,24 +6,16 @@ let Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('event', {
-    path: 'events'
-  }, function() {
+  this.route('events', function() {
     this.route('new');
-    this.route('show', {
-      path: '/:eventId'
-    });
-    this.route('edit', {
-      path: '/:eventId/edit'
-    });
-    this.route('race', {
-      path: 'races'
-    }, function() {
-      this.route('show', {
-        path: '/:raceId'
+    this.route('show', { path: '/:event_id' }, function() {
+      this.route('races', function() {
+        this.route('new');
       });
     });
+    this.route('edit', { path: '/:event_id/edit' });
   });
+  this.route('page-not-found', { path: '/*wildcard' });
 });
 
 export default Router;

@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">{{event.name}}</div>
+  <div class="panel-body">
+    <dl class="dl-horizontal">
+      <dt>Date</dt>
+      <dd>{{moment-format event.startAtDate 'MM/DD/YYYY'}}</dd>
+      <dt>Location</dt>
+      <dd>{{event.city}}, {{event.state}}</dd>
+      <dt>Website</dt>
+      <dd><a href="{{event.url}}">{{event.url}}</a></dd>
+    </dl>
+  </div>
+</div>
+{{yield}}

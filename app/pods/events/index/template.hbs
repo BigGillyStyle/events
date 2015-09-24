@@ -13,7 +13,7 @@
       {{#each model as |event|}}
         <tr>
           <td>
-            {{#link-to "event.show" event}}{{event.name}}{{/link-to}}
+            {{#link-to "events.show" event}}{{event.name}}{{/link-to}}
           </td>
           <td>{{moment-format event.startAtDate 'MM/DD/YYYY'}}</td>
           <td>{{event.city}}, {{event.state}}</td>
@@ -23,5 +23,5 @@
   </table>
 </div>
 <div class="row text-center">
-  {{#link-to 'event.new' class="btn btn-primary" }}Add New Event{{/link-to}}
+  {{#link-to 'events.new' class="btn btn-primary" }}Add New Event{{/link-to}}
 </div>

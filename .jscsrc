@@ -1,3 +1,4 @@
 {
-  "validateQuoteMarks": false
+  "validateQuoteMarks": false,
+  "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties"
 }
