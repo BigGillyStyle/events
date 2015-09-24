@@ -3,6 +3,9 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   races: DS.hasMany('race'),
+  hasRaces: Ember.computed('races', function() {
+    return this.get('races').length > 0;
+  }),
 
   name: DS.attr('string'),
   city: DS.attr('string'),
