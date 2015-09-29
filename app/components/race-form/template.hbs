@@ -1,21 +1,47 @@
 <div class="row text-center form-group">
-  <button class="btn {{if model.isRun 'btn-primary' 'btn-info'}}" {{action "setRaceType" "run"}}>Run</button>
-  <button class="btn {{if model.isBike 'btn-primary' 'btn-info'}}" {{action "setRaceType" "bike"}}>Bike</button>
-  <button class="btn {{if model.isTri 'btn-primary' 'btn-info'}}" {{action "setRaceType" "tri"}}>Tri</button>
+  <strong>Select Race Type:</strong>
+  <button class="btn {{if model.isRun 'btn-default' 'btn-info'}}" {{action "setRaceType" "run"}}>Run</button>
+  <button class="btn {{if model.isBike 'btn-default' 'btn-info'}}" {{action "setRaceType" "bike"}}>Bike</button>
+  <button class="btn {{if model.isTri 'btn-default' 'btn-info'}}" {{action "setRaceType" "tri"}}>Tri</button>
 </div>
 
-<form class="form-horizontal">
-  {{component (concat model.raceType '-distance-input') model=model units=units}}
-  <div class="form-group">
-    <label for="surface1" class="col-sm-2 control-label">Course Surface</label>
-    <div class="col-sm-2">
-      {{#x-select id="surface1" class="form-control" value=model.courseSurface}}
-        {{#each surfaces as |surface|}}
-          {{#x-option value=surface.value}}
-            {{surface.label}}
-          {{/x-option}}
-        {{/each}}
-      {{/x-select}}
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form class="form-horizontal">
+          {{component (concat model.raceType '-distance-input') model=model units=units}}
+          <div class="form-group">
+            <label for="surface1" class="col-sm-3 control-label">Course Surface</label>
+            <div class="col-sm-3">
+              {{#x-select id="surface1" class="form-control" value=model.courseSurface}}
+                {{#each surfaces as |surface|}}
+                  {{#x-option value=surface.value}}
+                    {{surface.label}}
+                  {{/x-option}}
+                {{/each}}
+              {{/x-select}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2 col-sm-offset-1">
+              <button type="submit" class="btn btn-danger">Cancel
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="col-sm-8">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-primary">Add Another Race
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                </button>
+                <button type="submit" class="btn btn-success">Finish
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</form>
+</div>

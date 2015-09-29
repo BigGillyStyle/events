@@ -19,10 +19,13 @@ export default DS.Model.extend({
   }),
 
   // EX: number: 100, units: "miles"
+  swimDistanceInKilometers: DS.attr('number'),
   swimDistanceNumber: DS.attr('number'),
   swimDistanceUnits: DS.attr('string'),
+  bikeDistanceInKilometers: DS.attr('number'),
   bikeDistanceNumber: DS.attr('number'),
   bikeDistanceUnits: DS.attr('string'),
+  runDistanceInKilometers: DS.attr('number'),
   runDistanceNumber: DS.attr('number'),
   runDistanceUnits: DS.attr('string'),
 
