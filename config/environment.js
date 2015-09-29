@@ -3,13 +3,12 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'events',
-    podModulePrefix: 'events/pods',
     environment: environment,
     contentSecurityPolicy: {
       'script-src': "'self' https://maxcdn.bootstrapcdn.com https://*.firebaseio.com",
       'font-src': "'self' https://fonts.gstatic.com https://maxcdn.bootstrapcdn.com",
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
-      'style-src': "'self' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com"
+      'style-src': "'self' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com https://cdn.jsdelivr.net"
     },
     firebase: 'https://blistering-fire-1344.firebaseio.com/',
     baseURL: '/',

@@ -5,7 +5,6 @@ export default Ember.Route.extend({
     let model = this.store.createRecord('race', {
       event: this.modelFor('events.show')
     });
-    console.log('Model:', model);
     return model.save();
   }
 });

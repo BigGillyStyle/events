@@ -1,11 +1,7 @@
 <div class="row text-center">
-  <p>
-    Add a new race
-  </p>
-</div>
-<div class="row text-center">
   <button class="btn {{if model.isRun 'btn-primary' 'btn-info'}}" {{action "setRaceType" "run"}}>Run</button>
   <button class="btn {{if model.isBike 'btn-primary' 'btn-info'}}" {{action "setRaceType" "bike"}}>Bike</button>
-  <button class="btn {{if model.isSwim 'btn-primary' 'btn-info'}}" {{action "setRaceType" "swim"}}>Swim</button>
   <button class="btn {{if model.isTri 'btn-primary' 'btn-info'}}" {{action "setRaceType" "tri"}}>Tri</button>
 </div>
+
+{{race-run-form model=model}}
