@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="swimDistanceNumber1" class="col-sm-2 control-label">Swim Distance</label>
+  <div class="col-sm-2">
+    {{input type="text" id="swimDistanceNumber1" class="form-control" value=model.swimDistanceNumber}}
+  </div>
+  <div class="col-sm-2">
+    {{#x-select class="form-control" value=model.swimDistanceUnits}}
+      {{#each units as |unit|}}
+        {{#x-option value=unit.value}}
+          {{unit.label}}
+        {{/x-option}}
+      {{/each}}
+    {{/x-select}}
+  </div>
+</div>

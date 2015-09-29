@@ -1,0 +1,28 @@
+<div class="form-group">
+  <label for="runDistanceType1" class="col-sm-2 control-label">Run Distance</label>
+  <div class="form-group">
+    <div class="col-sm-2">
+      {{#x-select id="runDistanceType1" class="form-control" value=distanceType}}
+        {{#each distanceTypes as |distanceType|}}
+          {{#x-option value=distanceType.value}}
+            {{distanceType.label}}
+          {{/x-option}}
+        {{/each}}
+      {{/x-select}}
+    </div>
+    {{#if isCustom}}
+      <div class="col-sm-2">
+        {{input type="text" class="form-control" value=model.runDistanceNumber}}
+      </div>
+      <div class="col-sm-2">
+        {{#x-select class="form-control" value=model.runDistanceUnits}}
+          {{#each units as |unit|}}
+            {{#x-option value=unit.value}}
+              {{unit.label}}
+            {{/x-option}}
+          {{/each}}
+        {{/x-select}}
+      </div>
+    {{/if}}
+  </div>
+</div>

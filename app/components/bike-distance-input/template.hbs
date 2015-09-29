@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="bikeDistanceNumber1" class="col-sm-2 control-label">Bike Distance</label>
+  <div class="col-sm-2">
+    {{input type="text" id="bikeDistanceNumber1" class="form-control" value=model.bikeDistanceNumber}}
+  </div>
+  <div class="col-sm-2">
+    {{#x-select class="form-control" value=model.bikeDistanceUnits}}
+      {{#each units as |unit|}}
+        {{#x-option value=unit.value}}
+          {{unit.label}}
+        {{/x-option}}
+      {{/each}}
+    {{/x-select}}
+  </div>
+</div>

@@ -1,7 +1,21 @@
-<div class="row text-center">
+<div class="row text-center form-group">
   <button class="btn {{if model.isRun 'btn-primary' 'btn-info'}}" {{action "setRaceType" "run"}}>Run</button>
   <button class="btn {{if model.isBike 'btn-primary' 'btn-info'}}" {{action "setRaceType" "bike"}}>Bike</button>
   <button class="btn {{if model.isTri 'btn-primary' 'btn-info'}}" {{action "setRaceType" "tri"}}>Tri</button>
 </div>
 
-{{race-run-form model=model}}
+<form class="form-horizontal">
+  {{component (concat model.raceType '-distance-input') model=model units=units}}
+  <div class="form-group">
+    <label for="surface1" class="col-sm-2 control-label">Course Surface</label>
+    <div class="col-sm-2">
+      {{#x-select id="surface1" class="form-control" value=model.courseSurface}}
+        {{#each surfaces as |surface|}}
+          {{#x-option value=surface.value}}
+            {{surface.label}}
+          {{/x-option}}
+        {{/each}}
+      {{/x-select}}
+    </div>
+  </div>
+</form>
