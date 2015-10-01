@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  converter: Ember.inject.service('distance-converter'),
   distanceTypes: [{
     label: 'Marathon',
     value: 'marathon'
@@ -17,7 +18,6 @@ export default Ember.Component.extend({
     label: 'Custom',
     value: 'custom'
   }],
-
   distanceType: 'marathon',
   isCustom: Ember.computed('distanceType', function() {
     return this.get('distanceType') === 'custom';

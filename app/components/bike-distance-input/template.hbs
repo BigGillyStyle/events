@@ -1,11 +1,11 @@
 <div class="form-group">
   <label for="bikeDistanceNumber1" class="col-sm-3 control-label">Bike Distance</label>
   <div class="col-sm-3">
-    {{input type="text" id="bikeDistanceNumber1" class="form-control" value=model.bikeDistanceNumber}}
+    {{input type="text" id="bikeDistanceNumber1" class="form-control" value=distanceNumber key-up="setDistance"}}
   </div>
   <div class="col-sm-3">
-    {{#x-select class="form-control" value=model.bikeDistanceUnits}}
-      {{#each units as |unit|}}
+    {{#x-select class="form-control" value=distanceUnits action="setDistance"}}
+      {{#each converter.supportedUnits as |unit|}}
         {{#x-option value=unit.value}}
           {{unit.label}}
         {{/x-option}}

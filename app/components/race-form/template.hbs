@@ -1,8 +1,8 @@
 <div class="row text-center form-group">
   <strong>Select Race Type:</strong>
-  <button class="btn {{if model.isRun 'btn-default' 'btn-info'}}" {{action "setRaceType" "run"}}>Run</button>
-  <button class="btn {{if model.isBike 'btn-default' 'btn-info'}}" {{action "setRaceType" "bike"}}>Bike</button>
-  <button class="btn {{if model.isTri 'btn-default' 'btn-info'}}" {{action "setRaceType" "tri"}}>Tri</button>
+  <button class="btn btn-default {{unless model.isRun 'btn-default-deselected'}}" {{action "setRaceType" "run"}}>Run</button>
+  <button class="btn btn-default {{unless model.isBike 'btn-default-deselected'}}" {{action "setRaceType" "bike"}}>Bike</button>
+  <button class="btn btn-default {{unless model.isTri 'btn-default-deselected'}}" {{action "setRaceType" "tri"}}>Tri</button>
 </div>
 
 <div class="row">
@@ -10,11 +10,11 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <form class="form-horizontal">
-          {{component (concat model.raceType '-distance-input') model=model units=units}}
+          {{component (concat model.type '-distance-input') model=model}}
           <div class="form-group">
             <label for="surface1" class="col-sm-3 control-label">Course Surface</label>
             <div class="col-sm-3">
-              {{#x-select id="surface1" class="form-control" value=model.courseSurface}}
+              {{#x-select id="surface1" class="form-control" value=model.surface}}
                 {{#each surfaces as |surface|}}
                   {{#x-option value=surface.value}}
                     {{surface.label}}
@@ -25,19 +25,21 @@
           </div>
           <div class="row">
             <div class="col-sm-2 col-sm-offset-1">
-              <button type="submit" class="btn btn-danger">Cancel
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              {{#if model.event.hasRaces}}
+                <button class="btn btn-danger">Cancel
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+              {{/if}}
+            </div>
+            <div class="col-sm-6 text-center">
+              <button class="btn btn-primary" {{action "addAnotherRace"}}>Add Another Race
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
               </button>
             </div>
-            <div class="col-sm-8">
-              <div class="pull-right">
-                <button type="submit" class="btn btn-primary">Add Another Race
-                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                </button>
-                <button type="submit" class="btn btn-success">Finish
-                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                </button>
-              </div>
+            <div class="col-sm-2 text-right">
+              <button class="btn btn-success" {{action "finish"}}>Finish
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              </button>
             </div>
           </div>
         </form>

@@ -1,14 +1,24 @@
 <div class="panel panel-default">
-  <div class="panel-heading text-center"><h3>{{event.name}}</h3></div>
+  <div class="panel-heading text-center"><h3>{{model.name}}</h3></div>
   <div class="panel-body">
     <dl class="dl-horizontal">
       <dt>Date</dt>
-      <dd>{{moment-format event.startAtDate 'MM/DD/YYYY'}}</dd>
+      <dd>{{moment-format model.startAtDate 'MM/DD/YYYY'}}</dd>
       <dt>Location</dt>
-      <dd>{{event.city}}, {{event.state}}</dd>
+      <dd>{{model.city}}, {{model.state}}</dd>
       <dt>Website</dt>
-      <dd><a href="{{event.url}}">{{event.url}}</a></dd>
+      <dd><a href="{{model.url}}">{{model.url}}</a></dd>
     </dl>
   </div>
 </div>
+{{#if model.hasRaces}}
+  <div class="row">
+    {{#each model.races as |race|}}
+      <div class="col-sm-3">
+        {{race-panel model=race}}
+      </div>
+    {{/each}}
+  </div>
+{{/if}}
+
 {{yield}}

@@ -14,20 +14,16 @@ export default Ember.Component.extend({
     label: 'Indoors',
     value: 'indoors'
   }],
-  units: [{
-    label: 'Miles',
-    value: 'miles'
-  }, {
-    label: 'Kilometers',
-    value: 'kilometers'
-  }, {
-    label: 'Meters',
-    value: 'meters'
-  }],
 
   actions: {
     setRaceType(type) {
-      this.set('model.raceType', type);
+      this.set('model.type', type);
+    },
+    addAnotherRace() {
+      this.attrs.addAnotherRace();
+    },
+    finish() {
+      this.attrs.finish();
     }
   }
 });
