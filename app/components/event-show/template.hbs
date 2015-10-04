@@ -11,13 +11,19 @@
     </dl>
   </div>
 </div>
-{{#if model.hasRaces}}
+{{#if model.races}}
   <div class="row">
     {{#each model.races as |race|}}
       <div class="col-sm-3">
         {{race-panel model=race}}
       </div>
     {{/each}}
+  </div>
+{{else}}
+  <div class="row">
+    <p>
+      No races
+    </p>
   </div>
 {{/if}}
 

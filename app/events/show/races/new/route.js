@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    let model = this.store.createRecord('race', {
+    console.log('Hit the events.show.races.new model hook');
+    return this.store.createRecord('race', {
       event: this.modelFor('events.show')
     });
-    return model.save();
   }
 });

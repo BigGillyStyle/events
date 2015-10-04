@@ -3,10 +3,6 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   races: DS.hasMany('race'),
-  hasRaces: Ember.computed('races', function() {
-    return this.get('races').length > 0;
-  }),
-
   name: DS.attr('string'),
   city: DS.attr('string'),
   state: DS.attr('string', {
@@ -15,7 +11,6 @@ export default DS.Model.extend({
   country: DS.attr('string', {
     defaultValue: 'US'
   }),
-
   // start date (some events are multiple days and will have an end date)
   startAtTime: DS.attr('number'),
   startAtDate: Ember.computed('startAtTime', {
@@ -37,6 +32,5 @@ export default DS.Model.extend({
       return value;
     }
   }),
-
   url: DS.attr('string')
 });
