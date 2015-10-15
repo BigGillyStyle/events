@@ -17,7 +17,9 @@ export default Ember.Service.extend({
   }],
   convertToKilometers(number, units) {
     const supportedUnits = this.get('supportedUnits');
-    const factor = _.result(_.find(supportedUnits, {'value': units}), 'multiplyToKM');
+    const factor = _.result(_.find(supportedUnits, {
+      'value': units
+    }), 'multiplyToKM');
     return number * factor;
   }
 });

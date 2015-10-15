@@ -1,4 +1,7 @@
-import { moduleFor, test } from 'ember-qunit';
+import {
+  moduleFor, test
+}
+from 'ember-qunit';
 
 moduleFor('service:distance-converter', 'Unit | Service | distance converter', {
   // Specify the other units that are required for this test.
@@ -7,6 +10,6 @@ moduleFor('service:distance-converter', 'Unit | Service | distance converter', {
 
 // Replace this with your real tests.
 test('it exists', function(assert) {
-  var service = this.subject();
+  let service = this.subject();
   assert.ok(service);
 });

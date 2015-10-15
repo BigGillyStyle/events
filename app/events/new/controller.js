@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
         });
       },
     cancel() {
-      this.transitionToRoute('event.index');
+      this.transitionToRoute('events.index');
     }
   }
 });
