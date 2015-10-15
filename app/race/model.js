@@ -22,6 +22,10 @@ export default DS.Model.extend({
   bikeDistanceInKilometers: DS.attr('number'),
   runDistanceInKilometers: DS.attr('number'),
 
+  bikeDistanceInMiles: Ember.computed('bikeDistanceInKilometers', function() {
+    return this.get('bikeDistanceInKilometers') * 0.621371;
+  }),
+
   // "road", "offroad", "mix", "indoors"
   surface: DS.attr('string', {
     defaultValue: 'road'
