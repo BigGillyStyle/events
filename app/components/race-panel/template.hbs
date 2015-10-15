@@ -1,22 +1,40 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <dl class="dl-horizontal">
-      <dt>Type</dt>
-      <dd>{{capitalize model.type}}</dd>
-      {{#if model.isTri}}
-        <dt>Swim Distance</dt>
-        <dd>{{model.swimDistanceInKilometers}} KM</dd>
-      {{/if}}
-      {{#if (or model.isBike model.isTri)}}
-        <dt>Bike Distance</dt>
-        <dd>{{model.bikeDistanceInKilometers}} KM</dd>
-      {{/if}}
-      {{#if (or model.isRun model.isTri)}}
-        <dt>Run Distance</dt>
-        <dd>{{model.runDistanceInKilometers}} KM</dd>
-      {{/if}}
-      <dt>Surface</dt>
-      <dd>{{model.surface}}</dd>
-    </dl>
+    <div class="row">
+      <div class="col-xs-6 text-right">
+        <strong>Type</strong>
+      </div>
+      <div class="col-xs-6">{{capitalize model.type}}</div>
+    </div>
+    {{#if model.isTri}}
+      <div class="row">
+        <div class="col-xs-6 text-right">
+          <strong>Swim Distance</strong>
+        </div>
+        <div class="col-xs-6">{{format-number model.swimDistanceInKilometers maximumFractionDigits="1"}} KM</div>
+      </div>
+    {{/if}}
+    {{#if (or model.isBike model.isTri)}}
+      <div class="row">
+        <div class="col-xs-6 text-right">
+          <strong>Bike Distance</strong>
+        </div>
+        <div class="col-xs-6">{{format-number model.bikeDistanceInKilometers maximumFractionDigits="1"}} KM</div>
+      </div>
+    {{/if}}
+    {{#if (or model.isRun model.isTri)}}
+      <div class="row">
+        <div class="col-xs-6 text-right">
+          <strong>Run Distance</strong>
+        </div>
+        <div class="col-xs-6">{{format-number model.runDistanceInKilometers maximumFractionDigits="1"}} KM</div>
+      </div>
+    {{/if}}
+    <div class="row">
+      <div class="col-xs-6 text-right">
+        <strong>Surface</strong>
+      </div>
+      <div class="col-xs-6">{{model.surface}}</div>
+    </div>
   </div>
 </div>
