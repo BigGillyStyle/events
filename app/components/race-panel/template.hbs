@@ -11,7 +11,14 @@
         <div class="col-xs-6 text-right">
           <strong>Swim Distance</strong>
         </div>
-        <div class="col-xs-6">{{format-number model.swimDistanceInKilometers maximumFractionDigits="1"}} KM</div>
+        <div class="col-xs-6">
+          {{#if model.swimDistanceInKilometers}}
+            {{format-number model.swimDistanceInKilometers maximumFractionDigits="1"}}
+          {{else}}
+            0
+          {{/if}}
+          KM
+        </div>
       </div>
     {{/if}}
     {{#if (or model.isBike model.isTri)}}
@@ -19,7 +26,14 @@
         <div class="col-xs-6 text-right">
           <strong>Bike Distance</strong>
         </div>
-        <div class="col-xs-6">{{format-number model.bikeDistanceInKilometers maximumFractionDigits="1"}} KM</div>
+        <div class="col-xs-6">
+          {{#if model.bikeDistanceInKilometers}}
+            {{format-number model.bikeDistanceInKilometers maximumFractionDigits="1"}}
+          {{else}}
+            0
+          {{/if}}
+          KM
+        </div>
       </div>
     {{/if}}
     {{#if (or model.isRun model.isTri)}}
@@ -27,7 +41,14 @@
         <div class="col-xs-6 text-right">
           <strong>Run Distance</strong>
         </div>
-        <div class="col-xs-6">{{format-number model.runDistanceInKilometers maximumFractionDigits="1"}} KM</div>
+        <div class="col-xs-6">
+          {{#if model.runDistanceInKilometers}}
+            {{format-number model.runDistanceInKilometers maximumFractionDigits="1"}}
+          {{else}}
+            0
+          {{/if}}
+          KM
+        </div>
       </div>
     {{/if}}
     <div class="row">
