@@ -1,5 +1,7 @@
 <div class="panel panel-default">
-  <div class="panel-heading text-center"><h3>{{model.name}}</h3></div>
+  <div class="panel-heading text-center">
+    <h3>{{model.name}}</h3>
+  </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
       <dt>Date</dt>
@@ -14,9 +16,11 @@
 {{#if model.races}}
   <div class="row">
     {{#each model.races as |race|}}
-      <div class="col-sm-4">
-        {{race-panel model=race}}
-      </div>
+      {{#unless race.hasDirtyAttributes}}
+        <div class="col-sm-4">
+          {{race-panel model=race}}
+        </div>
+      {{/unless}}
     {{/each}}
   </div>
 {{else}}
