@@ -1,4 +1,5 @@
 {
+  "preset": "ember-suave",
   "validateQuoteMarks": false,
   "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties"
 }

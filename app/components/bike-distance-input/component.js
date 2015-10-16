@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   init() {
     this._super(...arguments);
-    console.log('Setting distances');
     this.set('distanceNumber', '');
     this.set('distanceUnits', this.get('converter').supportedUnits[0].value);
   },
