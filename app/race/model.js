@@ -2,6 +2,8 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default DS.Model.extend({
+  converter: Ember.inject.service('distance-converter'),
+
   event: DS.belongsTo('event'),
 
   // "run", "bike",, "tri"
@@ -23,7 +25,7 @@ export default DS.Model.extend({
   runDistanceInKilometers: DS.attr('number'),
 
   bikeDistanceInMiles: Ember.computed('bikeDistanceInKilometers', function() {
-    return this.get('bikeDistanceInKilometers') * 0.621371;
+    return this.get('converter').convertToMiles(this.get('bikeDistanceInKilometers'), 'kilometers');
   }),
 
   // "road", "offroad", "mix", "indoors"
