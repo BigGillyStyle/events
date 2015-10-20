@@ -1,21 +1,21 @@
 <div class="form-group">
   <label for="runDistanceType1" class="col-sm-3 control-label">Run Distance</label>
   <div class="col-sm-3">
-    {{#x-select id="runDistanceType1" class="form-control" value=distanceType}}
-      {{#each distanceTypes as |distanceType|}}
-        {{#x-option value=distanceType.value}}
-          {{distanceType.label}}
+    {{#x-select id="runDistanceType1" class="form-control" value=runType action="distanceChanged"}}
+      {{#each runTypes as |type|}}
+        {{#x-option value=type.value}}
+          {{type.label}}
         {{/x-option}}
       {{/each}}
     {{/x-select}}
   </div>
   {{#if isCustom}}
     <div class="col-sm-3">
-      {{input type="text" class="form-control" value=model.runDistanceNumber required=true}}
+      {{input type="text" class="form-control" value=distanceNumber required=true key-up="distanceChanged"}}
     </div>
     <div class="col-sm-3">
-      {{#x-select class="form-control" value=model.runDistanceUnits}}
-        {{#each converter.supportedUnits as |unit|}}
+      {{#x-select class="form-control" value=distanceUnits action="distanceChanged"}}
+        {{#each converter.units as |unit|}}
           {{#x-option value=unit.value}}
             {{unit.label}}
           {{/x-option}}
