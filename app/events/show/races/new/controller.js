@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
         event.get('races').pushObject(raceResponse);
         event.save().then((eventResponse) => {
           this.transitionToRoute('events.index');
-          flashMessages.success(`Successfully saved changes to: ${eventResponse.get('event.name')}`);
+          flashMessages.success(`Successfully saved changes to: ${eventResponse.get('name')}`);
         });
       });
     }
