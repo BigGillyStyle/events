@@ -11,13 +11,13 @@ export default Ember.Component.extend({
     this._super(...arguments);
     const converter = this.get('converter');
     const runTypesSvc = this.get('runTypesSvc');
-    let runTypes = Ember.copy(runTypesSvc.types);
-    runTypes.pushObject({
+    let types = Ember.copy(runTypesSvc.types);
+    types.pushObject({
       value: 'custom',
       label: 'Custom'
     });
-    this.set('runTypes', runTypes);
-    this.set('runType', runTypes[0].value);
+    this.set('runTypes', types);
+    this.set('runType', types[0].value);
     this.set('distanceNumber', '');
     this.set('distanceUnits', converter.units[0].value);
     this.setDistance();
@@ -30,9 +30,10 @@ export default Ember.Component.extend({
     if (this.get('isCustom')) {
       distance = this.get('converter').convertToKilometers(this.get('distanceNumber'), this.get('distanceUnits'));
     } else {
+      this.get('model').set('shortName', this.get('runType'));
       distance = this.get('runTypesSvc.types').findBy('value', this.get('runType')).kilometers;
     }
-    this.get('model').set('runDistanceInKilometers', distance);
+    this.get('model').set('runKilometers', distance);
   },
   actions: {
     distanceChanged() {

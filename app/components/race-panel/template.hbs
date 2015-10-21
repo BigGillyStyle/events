@@ -9,44 +9,45 @@
     {{#if model.isTri}}
       <div class="row">
         <div class="col-xs-6 text-right">
-          <strong>Swim Distance</strong>
+          <strong>Distance</strong>
         </div>
         <div class="col-xs-6">
-          {{#if model.swimDistanceInKilometers}}
-            {{format-number model.swimDistanceInKilometers maximumFractionDigits="1"}}
-          {{else}}
-            0
-          {{/if}}
-          KM
+          {{model.shortNameLabel}}
         </div>
       </div>
     {{/if}}
-    {{#if (or model.isBike model.isTri)}}
+    {{#if model.isBike}}
       <div class="row">
         <div class="col-xs-6 text-right">
           <strong>Bike Distance</strong>
         </div>
         <div class="col-xs-6">
-          {{#if model.bikeDistanceInKilometers}}
-            {{format-number model.bikeDistanceInKilometers maximumFractionDigits="1"}} km / {{format-number model.bikeDistanceInMiles maximumFractionDigits="1"}} miles
+          {{#if model.bikeKilometers}}
+            {{format-number model.bikeKilometers maximumFractionDigits="1"}} km / {{format-number model.bikeMiles maximumFractionDigits="1"}} miles
           {{else}}
             0
           {{/if}}
         </div>
       </div>
     {{/if}}
-    {{#if (or model.isRun model.isTri)}}
+    {{#if model.isRun}}
       <div class="row">
         <div class="col-xs-6 text-right">
           <strong>Run Distance</strong>
         </div>
-        <div class="col-xs-6">
-          {{#if model.runDistanceInKilometers}}
-            {{format-number model.runDistanceInKilometers maximumFractionDigits="1"}} km / {{format-number model.runDistanceInMiles maximumFractionDigits="1"}} miles
-          {{else}}
-            0
-          {{/if}}
-        </div>
+        {{#if model.shortName}}
+          <div class="col-xs-6">
+            {{model.shortNameLabel}}
+          </div>
+        {{else}}
+          <div class="col-xs-6">
+            {{#if model.runKilometers}}
+              {{format-number model.runKilometers maximumFractionDigits="1"}} km / {{format-number model.runMiles maximumFractionDigits="1"}} miles
+            {{else}}
+              0
+            {{/if}}
+          </div>
+        {{/if}}
       </div>
     {{/if}}
     <div class="row">

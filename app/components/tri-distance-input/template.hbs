@@ -1,3 +1,12 @@
-{{swim-distance-input model=model units=units}}
-{{bike-distance-input model=model units=units}}
-{{run-distance-input model=model units=units}}
+<div class="form-group">
+  <label for="triDistanceType1" class="col-sm-3 control-label">Tri Distance</label>
+  <div class="col-sm-3">
+    {{#x-select id="triDistanceType1" class="form-control" value=triType action="distanceChanged"}}
+      {{#each triTypes as |type|}}
+        {{#x-option value=type.value}}
+          {{type.label}}
+        {{/x-option}}
+      {{/each}}
+    {{/x-select}}
+  </div>
+</div>

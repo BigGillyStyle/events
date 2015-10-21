@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   actions: {
     setDistance() {
       let convert = this.get('converter').convertToKilometers(this.get('distanceNumber'), this.get('distanceUnits'));
-      this.get('model').set('bikeDistanceInKilometers', convert);
+      this.get('model').set('bikeKilometers', convert);
     }
   }
 });
