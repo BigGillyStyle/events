@@ -1,8 +1,10 @@
 {{#event-form event=model}}
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-danger" {{action "cancel"}}> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Cancel</button>
-      <button type="submit" class="btn btn-primary pull-right" {{action "submit"}}>Add a Race <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+      {{#link-to 'events.index' class="btn btn-danger" }}
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Cancel
+      {{/link-to}}
+      <button class="btn btn-primary pull-right" {{action "submit"}}>Add a Race <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
     </div>
   </div>
 {{/event-form}}
