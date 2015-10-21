@@ -16,23 +16,6 @@ export default Ember.Service.extend({
     label: 'Kilometers',
     multiplyToKM: 1.0
   }],
-  runTypes: [{
-    value: 'marathon',
-    label: 'Marathon',
-    kilometers: 42.195
-  }, {
-    value: 'halfMarathon',
-    label: 'Half Marathon',
-    kilometers: 21.0975
-  }, {
-    value: '10k',
-    label: '10k',
-    kilometers: 10
-  }, {
-    value: '5k',
-    label: '5k',
-    kilometers: 5
-  }],
   convertToKilometers(number, units) {
     const supportedUnits = this.get('units');
     const factor = _.result(_.find(supportedUnits, {
