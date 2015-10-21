@@ -23,9 +23,14 @@ export default DS.Model.extend({
   swimDistanceInKilometers: DS.attr('number'),
   bikeDistanceInKilometers: DS.attr('number'),
   runDistanceInKilometers: DS.attr('number'),
-
   bikeDistanceInMiles: Ember.computed('bikeDistanceInKilometers', function() {
     return this.get('converter').convertToMiles(this.get('bikeDistanceInKilometers'), 'kilometers');
+  }),
+  runDistanceInMiles: Ember.computed('runDistanceInKilometers', function() {
+    return this.get('converter').convertToMiles(this.get('runDistanceInKilometers'), 'kilometers');
+  }),
+  swimDistanceInMiles: Ember.computed('swimDistanceInKilometers', function() {
+    return this.get('converter').convertToMiles(this.get('swimDistanceInKilometers'), 'kilometers');
   }),
 
   // "road", "offroad", "mix", "indoors"

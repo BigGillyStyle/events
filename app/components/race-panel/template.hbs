@@ -28,8 +28,7 @@
         </div>
         <div class="col-xs-6">
           {{#if model.bikeDistanceInKilometers}}
-            {{format-number model.bikeDistanceInKilometers maximumFractionDigits="1"}} km /
-            {{format-number model.bikeDistanceInMiles maximumFractionDigits="1"}} miles
+            {{format-number model.bikeDistanceInKilometers maximumFractionDigits="1"}} km / {{format-number model.bikeDistanceInMiles maximumFractionDigits="1"}} miles
           {{else}}
             0
           {{/if}}
@@ -43,11 +42,10 @@
         </div>
         <div class="col-xs-6">
           {{#if model.runDistanceInKilometers}}
-            {{format-number model.runDistanceInKilometers maximumFractionDigits="1"}}
+            {{format-number model.runDistanceInKilometers maximumFractionDigits="1"}} km / {{format-number model.runDistanceInMiles maximumFractionDigits="1"}} miles
           {{else}}
             0
           {{/if}}
-          KM
         </div>
       </div>
     {{/if}}

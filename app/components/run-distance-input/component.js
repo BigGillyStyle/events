@@ -17,21 +17,20 @@ export default Ember.Component.extend({
     this.set('runTypes', runTypes);
     this.set('runType', runTypes[0].value);
     this.set('distanceNumber', '');
-    this.set('distanceUnits', this.get('converter').units[0].value);
+    this.set('distanceUnits', converter.units[0].value);
     this.setDistance();
   },
-  isCustom: Ember.computed('runType', function () {
+  isCustom: Ember.computed('runType', function() {
     return this.get('runType') === 'custom';
   }),
   setDistance() {
-      let distance;
-      if (this.get('isCustom')) {
-        distance = this.get('converter').convertToKilometers(this.get('distanceNumber'), this.get('distanceUnits'));
-      } else {
-        distance = this.get('converter.runTypes').findBy('value', this.get('runType')).kilometers;
-      }
-      console.log(`Setting model.runDistanceInKilometers to ${distance}`);
-      this.get('model').set('runDistanceInKilometers', distance);
+    let distance;
+    if (this.get('isCustom')) {
+      distance = this.get('converter').convertToKilometers(this.get('distanceNumber'), this.get('distanceUnits'));
+    } else {
+      distance = this.get('converter.runTypes').findBy('value', this.get('runType')).kilometers;
+    }
+    this.get('model').set('runDistanceInKilometers', distance);
   },
   actions: {
     distanceChanged() {

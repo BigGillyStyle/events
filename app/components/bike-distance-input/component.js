@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   distanceNumber: '',
-  distanceUnits: 'miles',
+  distanceUnits: '',
   converter: Ember.inject.service('distance-converter'),
   init() {
     this._super(...arguments);
