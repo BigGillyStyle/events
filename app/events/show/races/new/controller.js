@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
+    cancel() {
+      this.transitionToRoute('events.show');
+    },
     saveAndAddAnotherRace() {
       let race = this.get('model');
       race.save().then((raceResponse) => {

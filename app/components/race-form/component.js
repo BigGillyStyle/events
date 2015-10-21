@@ -19,6 +19,9 @@ export default Ember.Component.extend({
     setRaceType(type) {
       this.set('model.type', type);
     },
+    cancel() {
+      this.attrs.cancel();
+    },
     addAnotherRace() {
       this.attrs.addAnotherRace();
     },
