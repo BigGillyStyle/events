@@ -11,55 +11,37 @@
         </span>
       </div>
     </div>
-    {{#if model.isTri}}
-      <div class="row">
-        <div class="col-xs-6 text-right">
-          <strong>Distance</strong>
-        </div>
-        <div class="col-xs-6">
-          {{model.shortNameLabel}}
-        </div>
+    <div class="row">
+      <div class="col-xs-6 text-right">
+        <strong>Distance</strong>
       </div>
-    {{/if}}
-    {{#if model.isBike}}
-      <div class="row">
-        <div class="col-xs-6 text-right">
-          <strong>Bike Distance</strong>
-        </div>
-        <div class="col-xs-6">
+      <div class="col-xs-6">
+        {{#if model.isTri}}
+          {{model.shortNameLabel}}
+        {{else if model.isBike}}
           {{#if model.bikeKilometers}}
             {{format-number model.bikeKilometers maximumFractionDigits="1"}} km / {{format-number model.bikeMiles maximumFractionDigits="1"}} miles
           {{else}}
             0
           {{/if}}
-        </div>
-      </div>
-    {{/if}}
-    {{#if model.isRun}}
-      <div class="row">
-        <div class="col-xs-6 text-right">
-          <strong>Run Distance</strong>
-        </div>
-        {{#if model.shortName}}
-          <div class="col-xs-6">
+        {{else if model.isRun}}
+          {{#if model.shortName}}
             {{model.shortNameLabel}}
-          </div>
-        {{else}}
-          <div class="col-xs-6">
+          {{else}}
             {{#if model.runKilometers}}
               {{format-number model.runKilometers maximumFractionDigits="1"}} km / {{format-number model.runMiles maximumFractionDigits="1"}} miles
             {{else}}
               0
             {{/if}}
-          </div>
+          {{/if}}
         {{/if}}
       </div>
-    {{/if}}
+    </div>
     <div class="row">
       <div class="col-xs-6 text-right">
         <strong>Surface</strong>
       </div>
-      <div class="col-xs-6">{{model.surface}}</div>
+      <div class="col-xs-6">{{capitalize model.surface}}</div>
     </div>
   </div>
 </div>

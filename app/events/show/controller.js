@@ -26,13 +26,11 @@ export default Ember.Controller.extend({
       });
     },
     finishAddRace() {
-      const flashMessages = Ember.get(this, 'flashMessages');
       this.get('race').save().then((raceResponse) => {
         let event = raceResponse.get('event').get('content');
         event.get('races').pushObject(raceResponse);
         event.save().then((eventResponse) => {
-          this.transitionToRoute('events.index');
-          flashMessages.success(`Successfully saved changes to: ${eventResponse.get('name')}`);
+          this.transitionToRoute('events.show', eventResponse.get('id'));
         });
       });
     },
