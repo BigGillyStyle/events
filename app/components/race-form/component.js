@@ -17,16 +17,16 @@ export default Ember.Component.extend({
 
   actions: {
     setRaceType(type) {
-      this.set('model.type', type);
-    },
-    cancel() {
-      this.attrs.cancel();
-    },
-    addAnotherRace() {
-      this.attrs.addAnotherRace();
-    },
-    finish() {
-      this.attrs.finish();
-    }
+        this.set('model.type', type);
+      },
+      cancel() {
+        this.attrs.cancel();
+      },
+      addAnotherRace() {
+        this.attrs.addAnotherRace();
+      },
+      finish() {
+        this.attrs.finish();
+      }
   }
 });

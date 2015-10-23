@@ -1,27 +1,33 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  race: {},
+  emptyRace(event) {
+    return this.store.createRecord('race', {
+      event: event
+    });
+  },
   actions: {
-    cancel() {
-      this.transitionToRoute('events.show');
+    editEvent() {
+      this.transitionToRoute('events.edit', this.get('model.id'));
+    },
+    addRace() {
+      this.set('race', this.emptyRace(this.get('model')));
+    },
+    cancelAddRace() {
     },
     saveAndAddAnotherRace() {
-      let race = this.get('model');
-      race.save().then((raceResponse) => {
+      this.get('race').save().then((raceResponse) => {
         let event = raceResponse.get('event').get('content');
         event.get('races').pushObject(raceResponse);
         event.save().then((eventResponse) => {
-          let newRace = this.store.createRecord('race', {
-            event: eventResponse
-          });
-          this.set('model', newRace);
+          this.set('race', this.emptyRace(eventResponse));
         });
       });
     },
-    finish() {
+    finishAddRace() {
       const flashMessages = Ember.get(this, 'flashMessages');
-      let race = this.get('model');
-      race.save().then((raceResponse) => {
+      this.get('race').save().then((raceResponse) => {
         let event = raceResponse.get('event').get('content');
         event.get('races').pushObject(raceResponse);
         event.save().then((eventResponse) => {

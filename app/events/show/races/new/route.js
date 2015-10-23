@@ -1,9 +1,0 @@
-import Ember from 'ember';
-
-export default Ember.Route.extend({
-  model() {
-    return this.store.createRecord('race', {
-      event: this.modelFor('events.show')
-    });
-  }
-});
