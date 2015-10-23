@@ -35,6 +35,13 @@ export default Ember.Controller.extend({
           flashMessages.success(`Successfully saved changes to: ${eventResponse.get('name')}`);
         });
       });
+    },
+    deleteRace(race) {
+      let event = this.get('model');
+      event.get('races').removeObject(race);
+      event.save().then(() => {
+        race.destroyRecord();
+      });
     }
   }
 });
