@@ -3,9 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   race: {},
   emptyRace(event) {
-    return this.store.createRecord('race', {
-      event: event
-    });
+    return this.store.createRecord('race', { event });
   },
   actions: {
     editEvent() {
@@ -14,32 +12,43 @@ export default Ember.Controller.extend({
     addRace() {
       this.set('race', this.emptyRace(this.get('model')));
     },
-    cancelAddRace() {
-    },
+    cancelAddRace() {},
     saveAndAddAnotherRace() {
-      this.get('race').save().then((raceResponse) => {
-        let event = raceResponse.get('event').get('content');
-        event.get('races').pushObject(raceResponse);
-        event.save().then((eventResponse) => {
-          this.set('race', this.emptyRace(eventResponse));
+      this.get('race')
+        .save()
+        .then((raceResponse) => {
+          let event = raceResponse.get('event')
+            .get('content');
+          event.get('races')
+            .pushObject(raceResponse);
+          event.save()
+            .then((eventResponse) => {
+              this.set('race', this.emptyRace(eventResponse));
+            });
         });
-      });
     },
     finishAddRace() {
-      this.get('race').save().then((raceResponse) => {
-        let event = raceResponse.get('event').get('content');
-        event.get('races').pushObject(raceResponse);
-        event.save().then((eventResponse) => {
-          this.transitionToRoute('events.show', eventResponse.get('id'));
+      this.get('race')
+        .save()
+        .then((raceResponse) => {
+          let event = raceResponse.get('event')
+            .get('content');
+          event.get('races')
+            .pushObject(raceResponse);
+          event.save()
+            .then((eventResponse) => {
+              this.transitionToRoute('events.show', eventResponse.get('id'));
+            });
         });
-      });
     },
     deleteRace(race) {
       let event = this.get('model');
-      event.get('races').removeObject(race);
-      event.save().then(() => {
-        race.destroyRecord();
-      });
+      event.get('races')
+        .removeObject(race);
+      event.save()
+        .then(() => {
+          race.destroyRecord();
+        });
     }
   }
 });
