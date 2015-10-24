@@ -25,3 +25,6 @@ script:
 addons:
     code_climate:
         repo_token: 539c888c9f66f042bfa7ee0cf48b78d19e640b73a9fe2b1c8cf4230d4de3bd3c
+
+after_script:
+  - codeclimate-test-reporter < lcov.info
