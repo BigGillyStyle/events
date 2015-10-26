@@ -8,7 +8,6 @@ moduleForModel('race', 'Unit | Model | race', {
 
 test('it exists', function(assert) {
   let model = this.subject();
-  // var store = this.store();
   assert.ok(!!model);
 });
 
