@@ -34,3 +34,13 @@ test('should have a endAtDate', function(assert) {
   });
   assert.equal(model.get('endAtDate'), today);
 });
+
+test('should default country to US', function(assert) {
+  let model = this.subject();
+  assert.equal(model.get('country'), 'US');
+});
+
+test('should default state to AL', function(assert) {
+  let model = this.subject();
+  assert.equal(model.get('state'), 'AL');
+});

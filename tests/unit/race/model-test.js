@@ -41,3 +41,13 @@ test('should convert bikeKilometers to bikeMiles', function(assert) {
   });
   assert.equal(model.get('bikeMiles'), hundred * 0.621371);
 });
+
+test('should default type to run', function(assert) {
+  let model = this.subject();
+  assert.equal(model.get('type'), 'run');
+});
+
+test('should default surface to road', function(assert) {
+  let model = this.subject();
+  assert.equal(model.get('surface'), 'road');
+});
