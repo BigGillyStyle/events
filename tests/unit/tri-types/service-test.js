@@ -27,5 +27,6 @@ test('knows what an ironman is', function(assert) {
 
 test('should compute the totalDistance of an ironman', function(assert) {
   const service = this.subject();
-  assert.equal(service.totalDistance('ironman'), this.ironmanSwimKm + this.ironmanBikeKm + this.ironmanRunKm);
+  let ironman = service.totalDistance('ironman');
+  assert.equal(ironman, this.ironmanSwimKm + this.ironmanBikeKm + this.ironmanRunKm);
 });
