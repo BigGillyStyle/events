@@ -17,7 +17,7 @@ export default Ember.Component.extend({
       label: 'Custom'
     });
     this.set('runTypes', types);
-    this.set('runType', types[0].value);
+    this.set('runType', 'custom');
     this.set('distanceNumber', '');
     this.set('distanceUnits', converter.units[0].value);
     this.setDistance();

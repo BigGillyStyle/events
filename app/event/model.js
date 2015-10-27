@@ -12,23 +12,23 @@ export default DS.Model.extend({
     defaultValue: 'US'
   }),
   // start date (some events are multiple days and will have an end date)
-  startAtTime: DS.attr('number'),
-  startAtDate: Ember.computed('startAtTime', {
+  startTime: DS.attr('number'),
+  startDate: Ember.computed('startTime', {
     get() {
-        return new Date(this.get('startAtTime'));
+        return new Date(this.get('startTime'));
       },
     set(key, value) {
-      this.set('startAtTime', (new Date(value).getTime()));
+      this.set('startTime', (new Date(value).getTime()));
       return value;
     }
   }),
-  endAtTime: DS.attr('number'),
-  endAtDate: Ember.computed('endAtTime', {
+  endTime: DS.attr('number'),
+  endDate: Ember.computed('endTime', {
     get() {
-        return new Date(this.get('endAtTime'));
+        return new Date(this.get('endTime'));
       },
     set(key, value) {
-      this.set('endAtTime', (new Date(value).getTime()));
+      this.set('endTime', (new Date(value).getTime()));
       return value;
     }
   }),

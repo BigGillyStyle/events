@@ -19,20 +19,20 @@ test('should belong to an race', function(assert) {
   assert.equal(relationship.kind, 'hasMany', 'kind of relationship is belongsTo');
 });
 
-test('should have a startAtDate', function(assert) {
+test('should have a startDate', function(assert) {
   const today = new Date();
   let model = this.subject({
-    startAtDate: today
+    startDate: today
   });
-  assert.equal(model.get('startAtDate'), today);
+  assert.equal(model.get('startDate'), today);
 });
 
-test('should have a endAtDate', function(assert) {
+test('should have a endDate', function(assert) {
   const today = new Date();
   let model = this.subject({
-    endAtDate: today
+    endDate: today
   });
-  assert.equal(model.get('endAtDate'), today);
+  assert.equal(model.get('endDate'), today);
 });
 
 test('should default country to US', function(assert) {

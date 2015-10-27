@@ -1,9 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  race: {},
+  race: Ember.Object.create({}),
   emptyRace(event) {
-    return this.store.createRecord('race', { event });
+    return this.store.createRecord('race', {
+      event
+    });
   },
   actions: {
     editEvent() {
