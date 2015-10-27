@@ -28,7 +28,7 @@ export default DS.Model.extend({
   endTime: DS.attr('number'),
   endDate: Ember.computed('endTime', {
     get() {
-        return new Date(this.get('endTime'));
+      return new Date(this.get('endTime'));
     },
     set(key, value) {
       this.set('endTime', (new Date(value)
@@ -37,12 +37,12 @@ export default DS.Model.extend({
     }
   }),
   url: DS.attr('string'),
-  saveWithGeo: function() {
+  saveWithGeo() {
     const city = this.get('city');
     const state = this.get('state');
     Ember.$.ajax(`http://nominatim.openstreetmap.org/search?format=json&city=${city}&state=${state}&limit=1`)
       .then((response) => {
-        const geo = response[0];
+        const [geo] = response;
         this.set('lat', geo.lat);
         this.set('lon', geo.lon);
         this.save();
