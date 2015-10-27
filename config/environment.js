@@ -7,7 +7,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'script-src': "'self' https://maxcdn.bootstrapcdn.com https://*.firebaseio.com",
       'font-src': "'self' https://fonts.gstatic.com https://maxcdn.bootstrapcdn.com",
-      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com http://nominatim.openstreetmap.org",
       'style-src': "'self' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com https://cdn.jsdelivr.net"
     },
     firebase: 'https://blistering-fire-1344.firebaseio.com/',
