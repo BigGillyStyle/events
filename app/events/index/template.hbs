@@ -11,7 +11,14 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
-      {{events-map model=model}}
+      <div class="row">
+        <div class="col-md-4">
+          <h4 class="text">Search controls go here</h4>
+        </div>
+        <div class="col-md-8">
+          {{events-map events=model}}
+        </div>
+      </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="profile">
       {{events-list model=model}}

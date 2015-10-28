@@ -4,6 +4,8 @@
 @import "bower_components/font-awesome/scss/font-awesome";
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
+@import "bower_components/leaflet/dist/leaflet";
+@import "map";
 
 body {
   min-height: 2000px;

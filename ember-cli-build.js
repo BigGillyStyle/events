@@ -24,6 +24,12 @@ module.exports = function (defaults) {
   app.import('bower_components/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf', {destDir: '/fonts/bootstrap'});
   app.import('bower_components/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff', {destDir: '/fonts/bootstrap'});
   app.import('bower_components/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2', {destDir: '/fonts/bootstrap'});
+  app.import('bower_components/leaflet/dist/leaflet.js');
+  app.import('bower_components/leaflet/dist/images/layers-2x.png');
+  app.import('bower_components/leaflet/dist/images/layers.png');
+  app.import('bower_components/leaflet/dist/images/marker-icon-2x.png');
+  app.import('bower_components/leaflet/dist/images/marker-icon.png');
+  app.import('bower_components/leaflet/dist/images/marker-shadow.png');
 
   return app.toTree();
 };
