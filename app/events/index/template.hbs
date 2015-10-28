@@ -1,30 +1,31 @@
 <h2 class="text-center">Upcoming Events</h2>
 
 <div>
+  <div class="row">
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Map View</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">List View</a></li>
-  </ul>
+    <div class="col-md-4">
+      <h4 class="text">Search controls go here</h4>
+    </div>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
-      <div class="row">
-        <div class="col-md-4">
-          <h4 class="text">Search controls go here</h4>
+    <div class="col-md-8">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Map View</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">List View</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          {{events-map events=model eventClicked=(action 'navigateToEvent')}}
         </div>
-        <div class="col-md-8">
-          {{events-map events=model}}
+        <div role="tabpanel" class="tab-pane" id="profile">
+          {{events-list model=model}}
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="profile">
-      {{events-list model=model}}
-    </div>
-  </div>
 
+  </div>
 </div>
 
 <div class="row">

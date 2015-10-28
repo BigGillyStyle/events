@@ -1,3 +1,13 @@
 #map {
   height: 400px;
+
+  .popup {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+
+    .hidden-id {
+      display: none;
+    }
+  }
 }

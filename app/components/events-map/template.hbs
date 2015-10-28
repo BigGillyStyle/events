@@ -2,4 +2,14 @@
   <div id="map"></div>
 </div>
 
+<div class="hidden-div">
+  <ul>
+    {{#each events as |event|}}
+      <li>
+        {{#link-to "events.show" event.id classNameBindings="event.id"}}{{event.name}}{{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
 {{yield}}

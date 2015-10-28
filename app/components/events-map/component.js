@@ -3,7 +3,14 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   map: null,
   events: Ember.A(),
+  didInsertElement() {
+    Ember.run.scheduleOnce('afterRender', this, function() {
+      this.initializeMap();
+      this.addEventMarkersToMap();
+    });
+  },
   initializeMap() {
+    let that = this;
     let m = this.get('map');
     if (!!m) {
       m.remove();
@@ -16,24 +23,32 @@ export default Ember.Component.extend({
       })
       .addTo(m);
     L.Icon.Default.imagePath = 'leaflet/dist/images';
+    m.on('popupopen', that.openPopup);
     this.set('map', m);
   },
   addEventMarkersToMap() {
+    // let that = this;
     let e = this.get('events');
     let m = this.get('map');
     if (!!e) {
       e.forEach(function(event) {
         const lat = event.get('lat');
         const lon = event.get('lon');
-        let marker = L.marker([lat, lon]).addTo(m);
-        marker.bindPopup(`<a href="/events/${event.get('id')}">${event.get('name')}</a>`);
+        let marker = L.marker([lat, lon])
+          .addTo(m);
+        let popup = L.popup({
+            className: 'popup'
+          })
+          .setContent(`${event.get('name')} <span class="hidden-id">${event.get('id')}</span>`);
+        marker.bindPopup(popup);
       });
     }
   },
-  didInsertElement() {
-    Ember.run.scheduleOnce('afterRender', this, function() {
-      this.initializeMap();
-      this.addEventMarkersToMap();
+  openPopup(event) {
+    Ember.$('.popup').click(function() {
+      let content = event.popup.getContent();
+      let eventId = content.match(/<span class="hidden-id">(.*?)<\/span>/)[1];
+      Ember.$(`.${eventId}`).trigger('click');
     });
   }
 });
