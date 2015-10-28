@@ -47,7 +47,7 @@ export default Ember.Component.extend({
   openPopup(event) {
     Ember.$('.popup').click(function() {
       let content = event.popup.getContent();
-      let eventId = content.match(/<span class="hidden-id">(.*?)<\/span>/)[1];
+      let [,eventId] = content.match(/<span class="hidden-id">(.*?)<\/span>/);
       Ember.$(`.${eventId}`).trigger('click');
     });
   }
