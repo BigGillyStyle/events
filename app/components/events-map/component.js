@@ -26,7 +26,7 @@ export default Ember.Component.extend({
         const lat = event.get('lat');
         const lon = event.get('lon');
         let marker = L.marker([lat, lon]).addTo(m);
-        marker.bindPopup(`${event.get('name')}`);
+        marker.bindPopup(`<a href="/events/${event.get('id')}">${event.get('name')}</a>`);
       });
     }
   },
