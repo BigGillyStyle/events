@@ -49,7 +49,6 @@
     "ember-suave": "^1.1.0",
     "ember-truth-helpers": "^1.1.0",
     "emberfire": "^1.5.0",
-    "emberx-select": "^2.0.1",
-    "liquid-fire": "^0.21.2"
+    "emberx-select": "^2.0.1"
   }
 }
