@@ -1,9 +1,4 @@
-<div class="row text-center form-group">
-  <strong>Select Race Type:</strong>
-  <button class="btn btn-default {{unless model.isRun 'btn-default-deselected'}}" {{action "setRaceType" "run"}}>Run</button>
-  <button class="btn btn-default {{unless model.isBike 'btn-default-deselected'}}" {{action "setRaceType" "bike"}}>Bike</button>
-  <button class="btn btn-default {{unless model.isTri 'btn-default-deselected'}}" {{action "setRaceType" "tri"}}>Tri</button>
-</div>
+{{race-type-selector race=model buttonSelected=(action "setRaceType")}}
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">

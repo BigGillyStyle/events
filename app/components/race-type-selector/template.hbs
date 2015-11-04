@@ -1,0 +1,6 @@
+<div class="row text-center form-group">
+  <strong>Race Type:</strong>
+  <button class="btn btn-default {{unless race.isRun 'btn-default-deselected'}}" {{action "buttonSelected" "run"}}>Run</button>
+  <button class="btn btn-default {{unless race.isBike 'btn-default-deselected'}}" {{action "buttonSelected" "bike"}}>Bike</button>
+  <button class="btn btn-default {{unless race.isTri 'btn-default-deselected'}}" {{action "buttonSelected" "tri"}}>Tri</button>
+</div>
