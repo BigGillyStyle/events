@@ -2,7 +2,7 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  races: DS.hasMany('race', {async: false}),
+  races: DS.hasMany('race', { async: false }),
   name: DS.attr('string'),
   city: DS.attr('string'),
   state: DS.attr('string', {
