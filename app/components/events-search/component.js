@@ -6,9 +6,15 @@ export default Ember.Component.extend({
   isTri: true,
   types: Ember.computed('isRun', 'isBike', 'isTri', function() {
     let _types = [];
-    if (this.get('isRun')) {_types.push('run');}
-    if (this.get('isBike')) {_types.push('bike');}
-    if (this.get('isTri')) {_types.push('tri');}
+    if (this.get('isRun')) {
+      _types.push('run');
+    }
+    if (this.get('isBike')) {
+      _types.push('bike');
+    }
+    if (this.get('isTri')) {
+      _types.push('tri');
+    }
     return _types;
   }),
   typeChanged: Ember.observer('isRun', 'isBike', 'isTri', function() {

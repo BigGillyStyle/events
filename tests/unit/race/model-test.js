@@ -1,5 +1,4 @@
 import { moduleForModel, test } from 'ember-qunit';
-import Ember from 'ember';
 
 moduleForModel('race', 'Unit | Model | race', {
   // Specify the other units that are required for this test.
@@ -9,14 +8,6 @@ moduleForModel('race', 'Unit | Model | race', {
 test('it exists', function(assert) {
   let model = this.subject();
   assert.ok(!!model);
-});
-
-test('should belong to an event', function(assert) {
-  const race = this.store().modelFor('race');
-  const relationship = Ember.get(race, 'relationshipsByName').get('event');
-
-  assert.equal(relationship.key, 'event', 'has relationship with event');
-  assert.equal(relationship.kind, 'belongsTo', 'kind of relationship is belongsTo');
 });
 
 test('should return a shortNameLabel', function(assert) {

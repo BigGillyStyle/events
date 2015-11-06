@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  querySvc: Ember.inject.service('event-query'),
+  eventQuery: Ember.inject.service(),
   model() {
-    return this.get('querySvc').findEvents();
+    return this.get('eventQuery').findEvents();
   }
 });
