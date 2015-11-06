@@ -6,8 +6,6 @@ export default DS.Model.extend({
   runTypesSvc: Ember.inject.service('run-types'),
   triTypesSvc: Ember.inject.service('tri-types'),
 
-  event: DS.belongsTo('event'),
-
   // 'Ironman', 'Marathon', etc.
   shortName: DS.attr('string'),
   shortNameLabel: Ember.computed('shortName', function() {

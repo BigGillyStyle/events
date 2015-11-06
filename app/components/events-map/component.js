@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   map: null,
-  events: Ember.A(),
+  eventsChanged: Ember.observer('events.[]', function() {
+    console.log(`Number of events is: ${this.get('events').content.length}`);
+  }),
   didInsertElement() {
     Ember.run.scheduleOnce('afterRender', this, function() {
       this.initializeMap();
