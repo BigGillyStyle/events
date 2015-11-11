@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   eventQuery: Ember.inject.service(),
-  distances: Ember.computed('model', function() {
+  distances: Ember.computed('allEvents', function() {
     let events = this.get('model');
     let distances = events.map(function(event) {
       let races = event.get('races');

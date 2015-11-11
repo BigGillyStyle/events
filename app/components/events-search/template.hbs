@@ -1,4 +1,4 @@
-<div class="row">
+<div class="search-row">
   <div class="col-sm-4">
     <strong>Race Type:</strong>
   </div>
@@ -14,14 +14,29 @@
     </label>
   </div>
 </div>
-<div class="row">
+<div class="search-row">
   <div class="col-sm-4">
     <strong>Distance:</strong>
   </div>
   <div class="col-sm-8">
-    {{range-slider
-      start=sliderStart
-      range=sliderRange
-      change='distanceChanged'}}
+    <div class="search-row">
+      <div class="col-xs-12">
+        {{range-slider
+          start=sliderStart
+          range=sliderRange
+          slide="distanceSlide"
+          change='distanceChanged'}}
+      </div>
+    </div>
+    <div class="search-row">
+      <div class="col-xs-12">
+        <div class="well well-sm pull-left">
+          {{format-number distanceLowerBound maximumFractionDigits="1"}}
+        </div>
+        <div class="well well-sm pull-right">
+          {{format-number distanceUpperBound maximumFractionDigits="1"}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>

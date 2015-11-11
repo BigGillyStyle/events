@@ -29,9 +29,17 @@ export default Ember.Component.extend({
       'max': [this.get('maxDistance')]
     });
   }),
+  setup: Ember.on('init', function() {
+    this.set('distanceLowerBound', this.get('minDistance'));
+    this.set('distanceUpperBound', this.get('maxDistance'));
+  }),
   actions: {
     distanceChanged(value) {
       this.attrs.distanceChanged(value[0], value[1]);
+    },
+    distanceSlide(value) {
+      this.set('distanceLowerBound', value[0]);
+      this.set('distanceUpperBound', value[1]);
     }
   }
 });
