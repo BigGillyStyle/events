@@ -32,9 +32,15 @@ export default DS.Model.extend({
     return this.get('type') === 'tri';
   }),
 
-  swimKilometers: DS.attr('number'),
-  bikeKilometers: DS.attr('number'),
-  runKilometers: DS.attr('number'),
+  swimKilometers: DS.attr('number', {
+    defaultValue: 0
+  }),
+  bikeKilometers: DS.attr('number', {
+    defaultValue: 0
+  }),
+  runKilometers: DS.attr('number', {
+    defaultValue: 0
+  }),
   bikeMiles: Ember.computed('bikeKilometers', function() {
     return this.get('converter').convertToMiles(this.get('bikeKilometers'), 'kilometers');
   }),
@@ -43,6 +49,9 @@ export default DS.Model.extend({
   }),
   swimMiles: Ember.computed('swimKilometers', function() {
     return this.get('converter').convertToMiles(this.get('swimKilometers'), 'kilometers');
+  }),
+  totalDistanceKilometers: Ember.computed('swimKilometers', 'bikeKilometers', 'runKilometers', function() {
+    return this.get('swimKilometers') + this.get('bikeKilometers') + this.get('runKilometers');
   }),
 
   // "road", "offroad", "mix", "indoors"

@@ -4,7 +4,6 @@ export default Ember.Component.extend({
   map: null,
   markers: Ember.ArrayProxy.create({ content: Ember.A([]) }),
   eventsChanged: Ember.observer('events.[]', function() {
-    console.log(`Events-Map:  events.length: ${this.get('events').get('length')}`);
     this.removeAllMarkersFromMap();
     this.addEventMarkersToMap();
   }),

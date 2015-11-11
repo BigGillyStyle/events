@@ -4,7 +4,11 @@
   <div class="row">
 
     <div class="col-md-4">
-      {{events-search raceTypesChanged=(action "raceTypesChanged")}}
+      {{events-search
+        minDistance=minDistance
+        maxDistance=maxDistance
+        raceTypesChanged=(action "raceTypesChanged")
+        distanceChanged=(action "distanceChanged")}}
     </div>
 
     <div class="col-md-8">
