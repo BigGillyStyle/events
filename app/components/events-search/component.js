@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  distanceConverter: Ember.inject.service(),
   isRun: true,
   isBike: true,
   isTri: true,
@@ -28,6 +29,14 @@ export default Ember.Component.extend({
       'min': [this.get('minDistance')],
       'max': [this.get('maxDistance')]
     });
+  }),
+  distanceLowerBoundMiles: Ember.computed('distanceLowerBound', function() {
+    return this.get('distanceConverter')
+      .convertToMiles(this.get('distanceLowerBound'), 'kilometers');
+  }),
+  distanceUpperBoundMiles: Ember.computed('distanceUpperBound', function() {
+    return this.get('distanceConverter')
+      .convertToMiles(this.get('distanceUpperBound'), 'kilometers');
   }),
   setup: Ember.on('init', function() {
     this.set('distanceLowerBound', this.get('minDistance'));

@@ -20,6 +20,21 @@
   </div>
   <div class="col-sm-8">
     <div class="search-row">
+      <div class="col-xs-3">
+        <div class="well well-sm pull-left">
+          {{format-number distanceLowerBoundMiles maximumFractionDigits="1"}}
+        </div>
+      </div>
+      <div class="col-xs-6 text-center">
+        miles
+      </div>
+      <div class="col-xs-3">
+        <div class="well well-sm pull-right">
+          {{format-number distanceUpperBoundMiles maximumFractionDigits="1"}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12">
         {{range-slider
           start=sliderStart
@@ -29,10 +44,15 @@
       </div>
     </div>
     <div class="search-row">
-      <div class="col-xs-12">
+      <div class="col-xs-3">
         <div class="well well-sm pull-left">
           {{format-number distanceLowerBound maximumFractionDigits="1"}}
         </div>
+      </div>
+      <div class="col-xs-6 text-center">
+        kilometers
+      </div>
+      <div class="col-xs-3">
         <div class="well well-sm pull-right">
           {{format-number distanceUpperBound maximumFractionDigits="1"}}
         </div>
