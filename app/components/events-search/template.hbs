@@ -1,62 +1,9 @@
 <div class="search-row">
-  <div class="col-sm-4">
-    <strong>Race Type:</strong>
-  </div>
-  <div class="col-sm-8">
-    <label class="checkbox-inline">
-      {{input type="checkbox" checked=isRun}} Run
-    </label>
-    <label class="checkbox-inline">
-      {{input type="checkbox" checked=isBike}} Bike
-    </label>
-    <label class="checkbox-inline">
-      {{input type="checkbox" checked=isTri}} Tri
-    </label>
-  </div>
+  {{events-type-search raceTypesChanged=this.attrs.raceTypesChanged}}
 </div>
 <div class="search-row">
-  <div class="col-sm-4">
-    <strong>Distance:</strong>
-  </div>
-  <div class="col-sm-8">
-    <div class="search-row">
-      <div class="col-xs-3">
-        <div class="well well-sm pull-left">
-          {{format-number distanceLowerBoundMiles maximumFractionDigits="1"}}
-        </div>
-      </div>
-      <div class="col-xs-6 text-center">
-        miles
-      </div>
-      <div class="col-xs-3">
-        <div class="well well-sm pull-right">
-          {{format-number distanceUpperBoundMiles maximumFractionDigits="1"}}
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        {{range-slider
-          start=sliderStart
-          range=sliderRange
-          slide="distanceSlide"
-          change='distanceChanged'}}
-      </div>
-    </div>
-    <div class="search-row">
-      <div class="col-xs-3">
-        <div class="well well-sm pull-left">
-          {{format-number distanceLowerBound maximumFractionDigits="1"}}
-        </div>
-      </div>
-      <div class="col-xs-6 text-center">
-        kilometers
-      </div>
-      <div class="col-xs-3">
-        <div class="well well-sm pull-right">
-          {{format-number distanceUpperBound maximumFractionDigits="1"}}
-        </div>
-      </div>
-    </div>
-  </div>
+  {{events-distance-search minDistance=minDistance maxDistance=maxDistance distanceChanged=this.attrs.distanceChanged}}
+</div>
+<div class="search-row">
+  {{events-date-search minTime=minTime maxTime=maxTime dateChanged=this.attrs.dateChanged}}
 </div>

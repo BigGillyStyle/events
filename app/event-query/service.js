@@ -4,52 +4,69 @@ export default Ember.Service.extend({
   store: Ember.inject.service(),
   allEvents: {
     orderBy: 'startTime',
-    startAt: new Date(new Date().setDate(new Date().getDate() - 1)).getTime(),
+    startAt: new Date(new Date()
+        .setDate(new Date()
+          .getDate() - 1))
+      .getTime(),
     limitToFirst: 1000
   },
   findEvents(criteria) {
     if (!!criteria) {
       return [];
-    } else {
-      return this.get('store').query('event', this.get('allEvents'));
+    }
+    else {
+      return this.get('store')
+        .query('event', this.get('allEvents'));
     }
   },
   filterEvents(events, query) {
-    console.log(`Querying against ${events.get('length')} events`);
-    console.log(`Query types: ${query.types}`);
-    console.log(`Query lower bound: ${query.distanceLowerBound}`);
-    console.log(`Query upper bound: ${query.distanceUpperBound}`);
     let _events = this.filterEventsByDistance(
-      this.filterEventsByRaceTypes(events, query.types),
+      this.filterEventsByRaceTypes(
+        this.filterEventsByDates(
+          events, query.fromDate, query.toDate), query.types),
       query.distanceLowerBound, query.distanceUpperBound);
-    console.log(`Filtering events yielded ${_events.get('length')} events`);
     return _events;
   },
   filterEventsByRaceTypes(events, types) {
     if (!!types) {
       let _events = events.filter((event) => {
-        return event.get('races').any((race) => {
-          return types.contains(race.get('type'));
-        });
+        return event.get('races')
+          .any((race) => {
+            return types.contains(race.get('type'));
+          });
       });
-      console.log(`Filtering events by race type yielded ${_events.get('length')} events`);
       return _events;
-    } else {
+    }
+    else {
       return events;
     }
   },
   filterEventsByDistance(events, distanceLowerBound, distanceUpperBound) {
     if (!!distanceLowerBound && !!distanceUpperBound) {
       let _events = events.filter((event) => {
-        return event.get('races').any((race) => {
-          let distance = race.get('totalDistanceKilometers');
-          console.log(`Total distance for race ${race.get('shortName')} is ${distance} km`);
-          return (distanceLowerBound <= distance) && (distance <= distanceUpperBound);
-        });
+        return event.get('races')
+          .any((race) => {
+            let distance = race.get('totalDistanceKilometers');
+            return (distanceLowerBound <= distance) && (distance <= distanceUpperBound);
+          });
       });
-      console.log(`Filtering events by distance yielded ${_events.get('length')} events`);
       return _events;
-    } else {
+    }
+    else {
+      return events;
+    }
+  },
+  filterEventsByDates(events, fromDate, toDate) {
+    if (!!fromDate && !!toDate) {
+      let _events = events.filter(function(event) {
+        const fromTime = fromDate.getTime();
+        const toTime = toDate.getTime();
+        const eventStartTime = event.get('startTime');
+        return (fromTime <= eventStartTime) && (eventStartTime <= toTime);
+      });
+      return _events;
+    }
+    else {
       return events;
     }
   }
