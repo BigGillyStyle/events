@@ -13,8 +13,7 @@ export default Ember.Service.extend({
   findEvents(criteria) {
     if (!!criteria) {
       return [];
-    }
-    else {
+    } else {
       return this.get('store')
         .query('event', this.get('allEvents'));
     }
@@ -36,8 +35,7 @@ export default Ember.Service.extend({
           });
       });
       return _events;
-    }
-    else {
+    } else {
       return events;
     }
   },
@@ -51,8 +49,7 @@ export default Ember.Service.extend({
           });
       });
       return _events;
-    }
-    else {
+    } else {
       return events;
     }
   },
@@ -65,8 +62,7 @@ export default Ember.Service.extend({
         return (fromTime <= eventStartTime) && (eventStartTime <= toTime);
       });
       return _events;
-    }
-    else {
+    } else {
       return events;
     }
   }
