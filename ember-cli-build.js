@@ -30,6 +30,7 @@ module.exports = function (defaults) {
   app.import('bower_components/leaflet/dist/images/marker-icon-2x.png');
   app.import('bower_components/leaflet/dist/images/marker-icon.png');
   app.import('bower_components/leaflet/dist/images/marker-shadow.png');
+  app.import('bower_components/Geolib/dist/geolib.js');
 
   return app.toTree();
 };

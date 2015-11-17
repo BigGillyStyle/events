@@ -3,7 +3,8 @@
     "document",
     "window",
     "-Promise",
-    "L"
+    "L",
+    "geolib"
   ],
   "browser": true,
   "boss": true,

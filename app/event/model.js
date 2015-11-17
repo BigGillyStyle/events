@@ -40,7 +40,7 @@ export default DS.Model.extend({
   saveWithGeo() {
     const city = this.get('city');
     const state = this.get('state');
-    Ember.$.ajax(`http://nominatim.openstreetmap.org/search?format=json&city=${city}&state=${state}&limit=1`)
+    Ember.$.ajax(`http://nominatim.openstreetmap.org/search?format=json&countrycodes=us&city=${city}&state=${state}&limit=1`)
       .then((response) => {
         const [geo] = response;
         this.set('lat', geo.lat);

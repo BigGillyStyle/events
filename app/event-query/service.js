@@ -22,44 +22,59 @@ export default Ember.Service.extend({
     let _events = this.filterEventsByDistance(
       this.filterEventsByRaceTypes(
         this.filterEventsByDates(
-          events, query.fromDate, query.toDate), query.types),
+          this.filterEventsByLocation(events, query.radius, query.lat, query.long),
+          query.fromDate, query.toDate),
+        query.types),
       query.distanceLowerBound, query.distanceUpperBound);
     return _events;
   },
   filterEventsByRaceTypes(events, types) {
     if (!!types) {
-      let _events = events.filter((event) => {
+      return events.filter((event) => {
         return event.get('races')
           .any((race) => {
             return types.contains(race.get('type'));
           });
       });
-      return _events;
     } else {
       return events;
     }
   },
   filterEventsByDistance(events, distanceLowerBound, distanceUpperBound) {
     if (!!distanceLowerBound && !!distanceUpperBound) {
-      let _events = events.filter((event) => {
+      return events.filter((event) => {
         return event.get('races')
           .any((race) => {
             let distance = race.get('totalDistanceKilometers');
             return (distanceLowerBound <= distance) && (distance <= distanceUpperBound);
           });
       });
-      return _events;
     } else {
       return events;
     }
   },
   filterEventsByDates(events, fromDate, toDate) {
     if (!!fromDate && !!toDate) {
-      let _events = events.filter(function(event) {
+      return events.filter(function(event) {
         const fromTime = fromDate.getTime();
         const toTime = toDate.getTime();
         const eventStartTime = event.get('startTime');
         return (fromTime <= eventStartTime) && (eventStartTime <= toTime);
+      });
+    } else {
+      return events;
+    }
+  },
+  filterEventsByLocation(events, radiusInKm, lat, lon) {
+    if (!!radiusInKm && !!lat && !!lon) {
+      let _events = events.filter(function(event) {
+        return geolib.getDistance({
+          latitude: event.lat,
+          longitude: event.lon
+        }, {
+          latitude: lat,
+          longitude: lon
+        }) <= radiusInKm;
       });
       return _events;
     } else {
