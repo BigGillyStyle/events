@@ -14,15 +14,14 @@ export default Ember.Service.extend({
     if (!!criteria) {
       return [];
     } else {
-      return this.get('store')
-        .query('event', this.get('allEvents'));
+      return this.get('store').query('event', this.get('allEvents'));
     }
   },
   filterEvents(events, query) {
     let _events = this.filterEventsByDistance(
       this.filterEventsByRaceTypes(
         this.filterEventsByDates(
-          this.filterEventsByLocation(events, query.radius, query.lat, query.long),
+          this.filterEventsByLocation(events, query.radius, query.lat, query.lon),
           query.fromDate, query.toDate),
         query.types),
       query.distanceLowerBound, query.distanceUpperBound);
@@ -68,13 +67,15 @@ export default Ember.Service.extend({
   filterEventsByLocation(events, radiusInKm, lat, lon) {
     if (!!radiusInKm && !!lat && !!lon) {
       let _events = events.filter(function(event) {
-        return geolib.getDistance({
-          latitude: event.lat,
-          longitude: event.lon
+        let _dist = geolib.getDistance({
+          latitude: event.get('lat'),
+          longitude: event.get('lon')
         }, {
           latitude: lat,
           longitude: lon
-        }) <= radiusInKm;
+        }) / 1000;
+        console.log(`Distance: ${_dist}`);
+        return _dist <= radiusInKm;
       });
       return _events;
     } else {
