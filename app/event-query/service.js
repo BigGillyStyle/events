@@ -66,7 +66,7 @@ export default Ember.Service.extend({
   },
   filterEventsByLocation(events, radiusInKm, lat, lon) {
     if (!!radiusInKm && !!lat && !!lon) {
-      let _events = events.filter(function(event) {
+      return events.filter(function(event) {
         let _dist = geolib.getDistance({
           latitude: event.get('lat'),
           longitude: event.get('lon')
@@ -74,10 +74,8 @@ export default Ember.Service.extend({
           latitude: lat,
           longitude: lon
         }) / 1000;
-        console.log(`Distance: ${_dist}`);
         return _dist <= radiusInKm;
       });
-      return _events;
     } else {
       return events;
     }
